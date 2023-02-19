@@ -17,15 +17,16 @@ class AgeWeight extends StatefulWidget {
       required this.title,
       required this.initValue,
       required this.min,
-      required this.max}):super(key: key);
-      
+      required this.max})
+      : super(key: key);
+
   @override
   State<AgeWeight> createState() => _AgeWeightState();
 }
 
 class _AgeWeightState extends State<AgeWeight> {
-  int _counter =  0;
-  
+  int _counter = 0;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -35,7 +36,7 @@ class _AgeWeightState extends State<AgeWeight> {
           padding: const EdgeInsets.all(12),
           child: SizedBox(
             height: 115,
-            width: 150,
+            width: 155,
             child: Card(
               elevation: 12,
               shape: RoundedRectangleBorder(
@@ -45,49 +46,65 @@ class _AgeWeightState extends State<AgeWeight> {
                 children: [
                   Text(
                     widget.title,
-                    style: TextStyle(fontSize: 25, color: Colors.grey),
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
                   ),
                   SizedBox(
                     height: 25,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
+            
+                      SizedBox(
+                        width: 35.0,
+                        height: 35.0,
+                        child: ElevatedButton(
+                          onPressed: () {
                             if (_counter > widget.min) {
-
-                          setState(() {
-                            _counter--;
-                          });
-                          widget.onChange(_counter);
-                              
+                              setState(() {
+                                _counter--;
+                              });
+                              widget.onChange(_counter);
                             }
-                        },
-                        child: Icon(Icons.remove),
-                        style: ElevatedButton.styleFrom(
-                          shape: CircleBorder(),
+                          },
+                          child: Icon(Icons.remove, size: 16.0),
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: Size.zero,
+                            padding: EdgeInsets.all(0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
                         ),
                       ),
+              
                       Text(
                         "$_counter",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w800),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          if (_counter < widget.max) {
-                            setState(() {
-                            _counter++;
-                          });
-                          widget.onChange(_counter);
-                          }
-                        },
-                        child: Icon(Icons.add),
-                        style: ElevatedButton.styleFrom(
-                          shape: CircleBorder(),
+                      SizedBox(
+                        width: 35.0,
+                        height: 35.0,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            if (_counter < widget.max) {
+                              setState(() {
+                                _counter++;
+                              });
+                              widget.onChange(_counter);
+                            }
+                          },
+                          child: Icon(Icons.add, size: 16.0),
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: Size.zero,
+                            padding: EdgeInsets.all(0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   )
                 ],
@@ -95,7 +112,6 @@ class _AgeWeightState extends State<AgeWeight> {
             ),
           ),
         ),
-
       ],
     );
   }

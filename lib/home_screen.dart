@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: const Text("Debug")),
+        title: const Center(child: const Text("BMI Calculator")),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -49,17 +49,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       AgeWeight(
                         title: "Age",
-                        min: 0,
+                        min: 1,
                         max: 120,
                         initValue: 2,
                         onChange: (valAge) {
                           _age = valAge;
                         },
                       ),
+
                       AgeWeight(
                         title: "Weight(Kg)",
                         min: 1,
@@ -73,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 110),
+                        vertical: 20, horizontal: 80),
                     child: SwipeableButtonView(
                       isFinished: _isFinished,
                       buttonText: "Calculate",

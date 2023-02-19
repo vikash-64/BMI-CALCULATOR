@@ -51,9 +51,10 @@ class _GenderWidgetState extends State<GenderWidget> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "images/male.png",
-                      width: 40,
+                    SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: Icon(Icons.man , size: 50,)
                     ),
                     const SizedBox(
                       height: 5,
@@ -80,10 +81,7 @@ class _GenderWidgetState extends State<GenderWidget> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "images/female.png",
-                      width: 40,
-                    ),
+                    Icon(Icons.woman , size: 50,),
                     const SizedBox(
                       height: 5,
                     ),
